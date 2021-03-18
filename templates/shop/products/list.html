@@ -1,0 +1,23 @@
+{% extends "shop/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    {% if category %} {{ category.name }} {% else %} Products {% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="text-center mb-4">
+<!--Grid row-->
+  <div class="row wow fadeIn">
+    <h3> Category </h3>
+    {% for product in products %}
+      <h1> {{ product.name }} </h1>
+      <img src="{% if product.image %} {{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+
+
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}
